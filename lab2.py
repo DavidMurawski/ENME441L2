@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setmode(GPIO.BOARD)
 
 in1, in2, out1, out2, out3 = 17, 27, 13, 19, 26
 
