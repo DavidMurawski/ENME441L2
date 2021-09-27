@@ -26,23 +26,35 @@ def myCallback(pin):
       try:
         pwm1.start(dc1)
         while True:
-          pass
+          for dc in range(101):
+            pwm1.ChangeDutyCycle(dc)
+            time.sleep(0.01)
+          for dc in range(101,0):
+            pwm1.ChangeDutyCycle(dc)
+            time.sleep(0.01)
       except KeyboardInterrupt:
         print('\nExiting')
+        GPIO.cleanup()
     if pin == in2:
       try:
         pwm2.start(dc1)
         while True:
-          pass
+          for dc in range(101):
+            pwm2.ChangeDutyCycle(dc)
+            time.sleep(0.01)
+          for dc in range(101,0):
+            pwm2.ChangeDutyCycle(dc)
+            time.sleep(0.01)
       except KeyboardInterrupt:
-        print('\nExiting')        
+        print('\nExiting')
+        GPIO.cleanup()        
 
 GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 
 GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
 
 while True:
-  print("taco")
+  print(".")
   time.sleep(0.1)
 
 GPIO.cleanup()
