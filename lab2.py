@@ -24,7 +24,7 @@ def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
     if pin == in1:
       try:
-        pwm1.start(dc1)
+        pwm1.start(0)
         while True:
           for dc in range(101):
             pwm1.ChangeDutyCycle(dc)
@@ -38,7 +38,7 @@ def myCallback(pin):
         return()
     if pin == in2:
       try:
-        pwm2.start(dc1)
+        pwm2.start(0)
         while True:
           for dc in range(101):
             pwm2.ChangeDutyCycle(dc)
@@ -55,12 +55,5 @@ GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 
 GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
 
-while True:
-  print(".")
-  pwm0.start(dc1)
-  time.sleep(0.1)
 
-pwm0.stop()
-pwm1.stop()
-pwm2.stop()
 GPIO.cleanup()
