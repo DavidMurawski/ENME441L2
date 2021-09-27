@@ -25,25 +25,23 @@ def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
     if pin == in1:
       try:
-        while True:
           for dc in range(101):
             pwm1.ChangeDutyCycle(dc)
-            time.sleep(0.01)
+            time.sleep(0.05)
           for dc in range(100,1,-1):
             pwm1.ChangeDutyCycle(dc)
-            time.sleep(0.01)
+            time.sleep(0.05)
       except KeyboardInterrupt:
         print('\nExiting')
         return()
     if pin == in2:
       try:
-        while True:
           for dc in range(101):
             pwm2.ChangeDutyCycle(dc)
-            time.sleep(0.01)
+            time.sleep(0.05)
           for dc in range(100,1,-1):
             pwm2.ChangeDutyCycle(dc)
-            time.sleep(0.01)
+            time.sleep(0.05)
       except KeyboardInterrupt:
         print('\nExiting')
         return()        
