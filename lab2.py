@@ -57,3 +57,5 @@ GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
 
 while True:
   pwm0.start(dc1)
+
+GPIO.cleanup()
