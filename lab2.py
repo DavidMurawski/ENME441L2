@@ -18,13 +18,13 @@ pwm0 = GPIO.PWM(out1, f1)
 pwm1 = GPIO.PWM(out2, f1)
 pwm2 = GPIO.PWM(out3, f1)
 
-
+pwm1.start(0)
+pwm2.start(0)
 
 def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
     if pin == in1:
       try:
-        pwm1.start(0)
         while True:
           for dc in range(101):
             pwm1.ChangeDutyCycle(dc)
@@ -37,7 +37,6 @@ def myCallback(pin):
         return()
     if pin == in2:
       try:
-        pwm2.start(0)
         while True:
           for dc in range(101):
             pwm2.ChangeDutyCycle(dc)
