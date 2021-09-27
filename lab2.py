@@ -35,6 +35,7 @@ def myCallback(pin):
       except KeyboardInterrupt:
         print('\nExiting')
         GPIO.cleanup()
+        return()
     if pin == in2:
       try:
         pwm2.start(dc1)
@@ -47,7 +48,8 @@ def myCallback(pin):
             time.sleep(0.01)
       except KeyboardInterrupt:
         print('\nExiting')
-        GPIO.cleanup()        
+        GPIO.cleanup()
+        return()        
 
 GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 
