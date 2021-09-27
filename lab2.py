@@ -18,7 +18,8 @@ pwm0 = GPIO.PWM(out1, f1)
 pwm1 = GPIO.PWM(out2, f1)
 pwm2 = GPIO.PWM(out3, f1)
 
-pwm0.start(dc1)
+while True:
+  pwm0.start(dc1)
 
 def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
@@ -56,4 +57,3 @@ GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
 
 
-GPIO.cleanup()
