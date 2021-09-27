@@ -42,7 +42,7 @@ GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
 
 while True:
-  print('.', end='')
+  print("taco")
   time.sleep(0.1)
 
 GPIO.cleanup()
