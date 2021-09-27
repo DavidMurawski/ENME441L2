@@ -13,8 +13,8 @@ GPIO.setup(out2, GPIO.OUT, initial=0)
 GPIO.setup(out3, GPIO.OUT, initial=0)
 
 dc1 = 50
-f1 = 1
-pwm0 = GPIO.PWM(out1, f1)
+f1 = 1000
+pwm0 = GPIO.PWM(out1, 1)
 pwm1 = GPIO.PWM(out2, f1)
 pwm2 = GPIO.PWM(out3, f1)
 
