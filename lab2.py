@@ -56,8 +56,11 @@ GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
 
 while True:
-  print(".")
-  time.sleep(0.1)
+  try:
+    print(".")
+    time.sleep(0.1)
+  except KeyboardInterrupt:
+    GPIO.cleanup()
 
 pwm0.stop()
 pwm1.stop()
