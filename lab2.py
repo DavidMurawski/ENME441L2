@@ -28,10 +28,10 @@ def myCallback(pin):
         while True:
           for dc in range(101):
             pwm1.ChangeDutyCycle(dc)
-            time.sleep(0.1)
+            time.sleep(0.01)
           for dc in range(101,0):
             pwm1.ChangeDutyCycle(dc)
-            time.sleep(0.1)
+            time.sleep(0.01)
       except KeyboardInterrupt:
         print('\nExiting')
         GPIO.cleanup()
@@ -41,10 +41,10 @@ def myCallback(pin):
         while True:
           for dc in range(101):
             pwm2.ChangeDutyCycle(dc)
-            time.sleep(0.1)
+            time.sleep(0.01)
           for dc in range(101,0):
             pwm2.ChangeDutyCycle(dc)
-            time.sleep(0.1)
+            time.sleep(0.01)
       except KeyboardInterrupt:
         print('\nExiting')
         GPIO.cleanup()        
@@ -57,4 +57,7 @@ while True:
   print(".")
   time.sleep(0.1)
 
+pwm0.stop()
+pwm1.stop()
+pwm2.stop()
 GPIO.cleanup()
