@@ -29,7 +29,7 @@ def myCallback(pin):
           for dc in range(101):
             pwm1.ChangeDutyCycle(dc)
             time.sleep(0.01)
-          for dc in range(100,1,1):
+          for dc in range(100,1,-1):
             pwm1.ChangeDutyCycle(dc)
             time.sleep(0.01)
       except KeyboardInterrupt:
@@ -43,7 +43,7 @@ def myCallback(pin):
           for dc in range(101):
             pwm2.ChangeDutyCycle(dc)
             time.sleep(0.01)
-          for dc in range(100,1,1):
+          for dc in range(100,1,-1):
             pwm2.ChangeDutyCycle(dc)
             time.sleep(0.01)
       except KeyboardInterrupt:
