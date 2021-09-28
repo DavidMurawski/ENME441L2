@@ -53,5 +53,6 @@ while True:
   try:
     pwm0.start(dc1)
   except KeyboardInterrupt:
+    print('\nExiting')
 
 GPIO.cleanup()
