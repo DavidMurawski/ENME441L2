@@ -56,6 +56,7 @@ while True:
 
 pwm1.stop()
 pwm2.stop()
-GPIO.output(out2,0)
-GPIO.output(out3,0)
+GPIO.output(out3,1)
+GPIO.output(out2,1)
+GPIO.output(out3,1)
 GPIO.cleanup()
