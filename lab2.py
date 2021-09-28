@@ -51,9 +51,9 @@ GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=300)
 
 while True:
   GPIO.output(out1,0)
-  time.sleep(1)
+  time.sleep(.5)
   GPIO.output(out1,1)
-  time.sleep(1)
+  time.sleep(.5)
 
 pwm1.stop()
 pwm2.stop()
