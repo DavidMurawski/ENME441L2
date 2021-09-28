@@ -29,9 +29,10 @@ def myCallback(pin):
           pwm1.ChangeDutyCycle(dc)
           time.sleep(0.01)
           print("1 going up")        
-        for dc in range(0,100,1):
+        for dc in range(0,101,1):
           pwm1.ChangeDutyCycle(dc)
           time.sleep(0.01)
+          print("1 going down")
         pwm1.ChangeDutyCycle(100)
       if GPIO.input(in2) == GPIO.HIGH:
         for dc in range(100,-1,-1):
