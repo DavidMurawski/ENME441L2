@@ -17,8 +17,8 @@ f1 = 100
 pwm1 = GPIO.PWM(out2, f1)
 pwm2 = GPIO.PWM(out3, f1)
 
-pwm1.start(100)
-pwm2.start(100)
+pwm1.start(0)
+pwm2.start(0)
 
 def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
