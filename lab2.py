@@ -25,17 +25,16 @@ def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
     try:
       if GPIO.input(in1) == GPIO.HIGH:
-        pwm1.start(100)
-        for dc in range(100,0,-1):
+        for dc in range(100,-1,-1):
           pwm1.ChangeDutyCycle(dc)
-          time.sleep(0.01)        
+          time.sleep(0.01)
+          print("1 going up")        
         for dc in range(0,100,1):
           pwm1.ChangeDutyCycle(dc)
           time.sleep(0.01)
         pwm1.ChangeDutyCycle(100)
       if GPIO.input(in2) == GPIO.HIGH:
-        pwm2.start(100)
-        for dc in range(100,0,-1):
+        for dc in range(100,-1,-1):
           pwm2.ChangeDutyCycle(dc)
           time.sleep(0.01)        
         for dc in range(0,100,1):
