@@ -8,13 +8,12 @@ in1, in2, out1, out2, out3 = 17, 27, 13, 19, 26
 GPIO.setup(in1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(in2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-GPIO.setup(out1, GPIO.OUT, initial=0)
-GPIO.setup(out2, GPIO.OUT, initial=0)
-GPIO.setup(out3, GPIO.OUT, initial=0)
+GPIO.setup(out1, GPIO.OUT)
+GPIO.setup(out2, GPIO.OUT)
+GPIO.setup(out3, GPIO.OUT)
 
 dc1 = 50
-f1 = 10000
-pwm0 = GPIO.PWM(out1, 1)
+f1 = 100
 pwm1 = GPIO.PWM(out2, f1)
 pwm2 = GPIO.PWM(out3, f1)
 
@@ -25,39 +24,36 @@ def myCallback(pin):
     print("Rising edge detected on pin %d" % pin)
     try:
       if GPIO.input(in1) == GPIO.HIGH:
-        for dc in range(100,-1,-1):
+        pwm2.start(100)
+        for dc in range(100,0,-1):
           pwm1.ChangeDutyCycle(dc)
           time.sleep(0.01)
           print("1 going up")        
-        for dc in range(0,101,1):
+        for dc in range(0,100,1):
           pwm1.ChangeDutyCycle(dc)
           time.sleep(0.01)
           print("1 going down")
-        pwm1.ChangeDutyCycle(100)
       if GPIO.input(in2) == GPIO.HIGH:
-        for dc in range(100,-1,-1):
+        for dc in range(100,0,-1):
           pwm2.ChangeDutyCycle(dc)
           time.sleep(0.01)        
         for dc in range(0,100,1):
           pwm2.ChangeDutyCycle(dc)
           time.sleep(0.01)
-        pwm2.ChangeDutyCycle(100)
     except KeyboardInterrupt:
       print('\nExiting')
-    except Exception as e:
-      print('\ne')
 
-GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 
-GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=100)
+GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=300)
+
+GPIO.add_event_detect(in2, GPIO.RISING, callback=myCallback, bouncetime=300)
 
 while True:
-  try:
-    pwm0.start(50)
-  except KeyboardInterrupt:
-    break
+  GPIO.output(out1,0)
+  time.sleep(1)
+  GPIO.output(out1,1)
+  time.sleep(1)
 
-pwm0.stop()
 pwm1.stop()
 pwm2.stop()
 GPIO.cleanup()
