@@ -54,7 +54,7 @@ while True:
     time.sleep(.5)
     GPIO.output(out1,1)
     time.sleep(.5)
-  except: KeyboardInterrupt:
+  except KeyboardInterrupt:
     pwm1.stop()
     pwm2.stop()
     GPIO.output(out1,1)
