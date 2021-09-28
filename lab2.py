@@ -44,7 +44,6 @@ def myCallback(pin):
         pwm2.ChangeDutyCycle(100)
     except KeyboardInterrupt:
       print('\nExiting')
-      GPIO.cleanup()      
 
 GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=100)
 
@@ -54,5 +53,5 @@ while True:
   try:
     pwm0.start(dc1)
   except KeyboardInterrupt:
-    GPIO.cleanup()
 
+GPIO.cleanup()
