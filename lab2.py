@@ -60,4 +60,4 @@ while True:
 
 pwm1.stop()
 pwm2.stop()
-GPIO.cleanup()
+#GPIO.cleanup()
