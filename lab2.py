@@ -43,6 +43,9 @@ def myCallback(pin):
           time.sleep(0.01)
     except KeyboardInterrupt:
       print('\nExiting')
+      pwm1.stop()
+      pwm2.stop()
+      GPIO.cleanup()  
 
 
 GPIO.add_event_detect(in1, GPIO.RISING, callback=myCallback, bouncetime=300)
