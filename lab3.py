@@ -36,7 +36,7 @@ class Joystick:
       PCF8591.write()
     except Exception as e:
       print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
-    return self.PCF8591.read(xch)
+    return PCF8591.write(xch)
 
 print(Joystick.getX())
 time.sleep(.1)
