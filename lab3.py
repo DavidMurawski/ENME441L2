@@ -38,5 +38,5 @@ class Joystick:
       print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
     return PCF8591.write(xch)
 
-print(Joystick.getX())
+print(Joystick.getX(0x40))
 time.sleep(.1)
