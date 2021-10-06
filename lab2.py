@@ -1,3 +1,5 @@
+#David Murawski Lab2 ENME441
+
 import RPi.GPIO as GPIO
 import time
 
@@ -61,10 +63,3 @@ while True:
     GPIO.output(out2,1)
     GPIO.output(out3,1)
     GPIO.cleanup()
-
-#pwm1.stop()
-#pwm2.stop()
-#GPIO.output(out1,1)
-#GPIO.output(out2,1)
-#GPIO.output(out3,1)
-#GPIO.cleanup()
