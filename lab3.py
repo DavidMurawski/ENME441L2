@@ -24,22 +24,19 @@ class PCF8591:
           print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
 
 class Joystick:
-  def __init__(self, bus, address, xch, ych):
+  global address
+  def __init__(self, xch, ych):
     self.xch = 0x40
     self.ych = 0x41
-    self.bus = smbus.SMBus(1)
-    self.address = address
+    
   
   def getX(self, xch):
     try:
-      self.PCF8591.read(xch)
+      PCF8591.read(xch)
+      PCF8591.write()
     except Exception as e:
       print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
     return self.PCF8591.read(xch)
-
-  #def getY(self, ):
-
-TheJoystick = Joystick(smbus.SMBus(1), 48, 0x40, 0x41)
 
 print(Joystick.getX())
 time.sleep(.1)
