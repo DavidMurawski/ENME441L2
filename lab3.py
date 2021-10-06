@@ -39,7 +39,7 @@ class Joystick:
 
   #def getY(self, ):
 
-TheJoystick = Joystick(smbus.SMBus(1), PCF8591.address, 0x40, 0x41)
+TheJoystick = Joystick(smbus.SMBus(1), 48, 0x40, 0x41)
 
 print(Joystick.getX())
 time.sleep(.1)
