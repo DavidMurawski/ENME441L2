@@ -1,3 +1,4 @@
+#David Murawski, ENME441 Lab 3 10/07/21
 #   To check address: sudo i2cdetect -y 1
 
 import smbus
@@ -23,21 +24,23 @@ class PCF8591:
       except Exception as e:
           print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
 
-#ADC = PCF8591(0x48)
-
+#Create a new class for the Joystick with PCF8591 included
 class Joystick(PCF8591):
-  
+  #instantiate and pull in address from PCF8591
   def __init__(self, address):
       super().__init__(address)
 
+  #Define a method for getting the x value and read from channel 0
   def getX(self):
       return super().read(0)
-  
+  #Define a method for getting the y value and read from channel 1
   def getY(self):
       return super().read(1)
 
+#Create a Joystick object named "MyJoy"
 MyJoy = Joystick(0x48)
 
+#Call and print the Joystick values every .1 seconds, and allow for a keyboard interrupt to stop
 while True:
   try:
     print(str(MyJoy.getX()) + ", " + str(MyJoy.getY()))
