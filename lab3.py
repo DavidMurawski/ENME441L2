@@ -23,7 +23,7 @@ class PCF8591:
       except Exception as e:
           print ("Error: Device address: 0x%2X \n%s" % (self.address,e))
 
-ADC = PCF8591(0x48)
+#ADC = PCF8591(0x48)
 
 class Joystick(PCF8591):
   
@@ -38,7 +38,7 @@ class Joystick(PCF8591):
     yvalue = super().read(1)
     return yvalue
 
-MyJoy = Joystick()
+MyJoy = Joystick(0x48)
 
 print(MyJoy.getX(), MyJoy.getY())
 time.sleep(.1)
