@@ -38,5 +38,9 @@ class Joystick(PCF8591):
 
 MyJoy = Joystick(0x48)
 
-print(MyJoy.getX(), MyJoy.getY())
-time.sleep(.1)
+while True:
+  try:
+    print(MyJoy.getX(), MyJoy.getY())
+    time.sleep(.1)
+  except KeyboardInterrupt:
+    print("Stopping")
