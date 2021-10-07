@@ -32,11 +32,10 @@ class Joystick(PCF8591):
 
   def getX(self):
     xvalue = super().read(0)
-    return xvalue
   
   def getY(self):
     yvalue = super().read(1)
-    return yvalue
+
 
 MyJoy = Joystick(0x48)
 
