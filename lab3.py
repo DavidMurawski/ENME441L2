@@ -28,13 +28,13 @@ class PCF8591:
 class Joystick(PCF8591):
   
   def __init__(self, address):
-    super().__init__(address)
+      super().__init__(address)
 
   def getX(self):
-    return super().read(0)
+      return super().read(0)
   
   def getY(self):
-    return super().read(1)
+      return super().read(1)
 
 MyJoy = Joystick(0x48)
 
