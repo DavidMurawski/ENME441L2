@@ -28,7 +28,7 @@ ADC = PCF8591(48)
 class Joystick(PCF8591):
   
   def __init__(self):
-    super.__init__(PCF8591)
+    super().__init__(PCF8591)
     #self.address = PCF8591.address
     self.xch = 0x40
     self.ych = 0x41
