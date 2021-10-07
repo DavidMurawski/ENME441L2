@@ -40,7 +40,7 @@ MyJoy = Joystick(0x48)
 
 while True:
   try:
-    print(str(MyJoy.getX()) + ", " + str(MyJoy.getY()))
+    print(str(MyJoy.getX() - 85) + ", " + str(MyJoy.getY()))
     time.sleep(.1)
   except KeyboardInterrupt:
     print("Stopping")
